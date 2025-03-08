@@ -42,6 +42,12 @@ jobs:
             # Ensure the app directory exists
             mkdir -p $APP_DIR
 
+            # Check if the directory exists
+            if [ ! -d "$APP_DIR/.git" ]; then
+              echo "Git repo not found. Cloning..."
+              git clone -b $BRANCH git@github.com:${{ github.repository }}.git $APP_DIR
+            fi
+
             # Navigate to the app directory
             cd $APP_DIR
 
