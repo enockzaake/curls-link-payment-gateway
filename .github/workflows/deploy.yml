@@ -55,6 +55,7 @@ jobs:
             # Check if the directory exists
             if [ ! -d "$APP_DIR/.git" ]; then
               echo "Git repo not found. Cloning..."
+              echo "REPO URL:git@github.com:${{ github.repository }}.git"
               git clone -b $BRANCH git@github.com:${{ github.repository }}.git $APP_DIR
             fi
 
